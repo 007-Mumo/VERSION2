@@ -62,7 +62,7 @@ const teamMembers = [
   {
     number: "02",
     role: "Graduate Engineer — Brian Mumo Musyoki",
-    discipline: "Electrical and Electronics Engineering",
+    discipline: "Electrical and Electronic Engineering",
     qualification: "BSc. Electrical and Electronic Engineering",
     institution: "University of Nairobi",
     description:
@@ -322,39 +322,39 @@ const AboutSection = ({ section }: AboutSectionProps) => {
                 className="mb-12"
               />
 
-              <div className="grid gap-8 lg:grid-cols-2">
+              {/* Responsive team gallery: stacked portraits on mobile, three-column cards on desktop. */}
+              <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-7 lg:gap-y-16">
                 {teamMembers.map((member) => (
                   <article
                     key={member.number}
-                    className="group overflow-hidden border border-border transition-colors hover:border-[#D4A72C]"
+                    className="group min-w-0"
                   >
-                    <div className="grid grid-cols-[minmax(150px,0.72fr)_minmax(0,1.28fr)] sm:grid-cols-[minmax(180px,0.75fr)_minmax(0,1.25fr)]">
-                      <div className="flex min-h-[280px] items-center justify-center overflow-hidden bg-[#F1F2F3] p-1 sm:min-h-[340px] sm:p-2">
-                        <img
-                          src={member.image}
-                          alt={member.imageAlt}
-                          loading="lazy"
-                          className="h-full max-h-[440px] w-full object-contain object-center"
-                        />
-                      </div>
+                    <div className="flex aspect-square w-full items-center justify-center overflow-hidden bg-[#F1F2F3]">
+                      <img
+                        src={member.image}
+                        alt={member.imageAlt}
+                        loading="lazy"
+                        className="h-full w-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.02]"
+                      />
+                    </div>
 
-                      <div className="min-w-0 p-4 sm:p-6">
-                        <p className={`eyebrow ${gold}`}>
-                          {member.discipline}
-                        </p>
-                        <h3 className="mt-3 text-lg font-bold leading-snug md:text-xl">
-                          {member.role}
-                        </h3>
-                        <p className="mt-3 text-sm font-semibold">
-                          {member.qualification}
-                        </p>
-                        <p className="mt-1 text-sm text-muted-foreground">
-                          {member.institution}
-                        </p>
-                        <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                          {member.description}
-                        </p>
-                      </div>
+                    <div className="px-1 pb-2 pt-6 sm:px-2 sm:pt-5">
+                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#B58B20]">
+                        {member.number} / {member.discipline}
+                      </p>
+                      <h3 className="mt-3 text-xl font-semibold uppercase leading-snug tracking-[0.045em] sm:text-lg lg:text-xl">
+                        {member.role}
+                      </h3>
+                      <p className="mt-2 text-sm font-medium leading-snug text-foreground/80">
+                        {member.qualification}
+                      </p>
+                      <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                        {member.institution}
+                      </p>
+                      <div className="my-4 h-px w-14 bg-[#D4A72C]" />
+                      <p className="text-sm leading-7 text-muted-foreground">
+                        {member.description}
+                      </p>
                     </div>
                   </article>
                 ))}
