@@ -1,0 +1,10 @@
+# SPA fallback so direct visits/refreshes to /projects etc. load the app.
+# If your Netlify site already has a netlify.toml (with your CSP headers), merge only this [[redirects]] block into it.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

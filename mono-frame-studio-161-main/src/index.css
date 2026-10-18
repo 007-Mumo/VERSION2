@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* KES LTD design system — engineering blue, charcoal, signal yellow */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 218 19% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 218 19% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 19% 11%;
+
+    /* Carbon Black #171A20 — dominant brand surface */
+    --primary: 222 15% 11%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light grey #F3F5F7 */
+    --secondary: 220 17% 97%;
+    --secondary-foreground: 218 19% 11%;
+    --muted: 220 17% 97%;
+    --muted-foreground: 216 10% 40%;
+    --accent: 210 20% 94%;
+    --accent-foreground: 218 19% 11%;
+
+    /* Engineering yellow #F5C542 */
+    --signal: 44 91% 62%;
+    --signal-foreground: 218 19% 11%;
+
+    /* Charcoal #171B22 */
+    --ink: 222 15% 11%;
+
+    /* Engineering Blue #315F8A — technical accents only */
+    --tech: 209 48% 37%;
+    --tech-foreground: 0 0% 100%;
+    /* Slate Grey #A0A8B4 */
+    --slate: 216 11% 67%;
+    --ink-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 16% 88%;
+    --input: 214 16% 88%;
+    --ring: 44 91% 62%;
+    --radius: 0.125rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --gradient-hero: linear-gradient(100deg, hsl(222 15% 11% / 0.9) 0%, hsl(222 15% 11% / 0.6) 50%, hsl(222 15% 11% / 0.1) 100%);
+    --shadow-elegant: 0 18px 40px -20px hsl(222 15% 11% / 0.35);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+  h1, h2, h3 { @apply tracking-tight; }
+}
+
+@layer components {
+  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.22em]; }
+  .container-x { @apply mx-auto w-full max-w-7xl px-6 md:px-10; }
+
+  /* Schematic grid: subtle engineering-drawing background */
+  .bg-schematic {
+    background-image:
+      linear-gradient(hsl(var(--primary-foreground) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary-foreground) / 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .bg-schematic-light {
+    background-image:
+      linear-gradient(hsl(var(--primary) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .hero-overlay { background: var(--gradient-hero); }
+
+  .reveal { opacity: 0; transform: translateY(24px); animation: reveal 1s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .reveal-2 { opacity: 0; transform: translateY(24px); animation: reveal 1s cubic-bezier(0.16,1,0.3,1) 0.2s forwards; }
+  .reveal-3 { opacity: 0; transform: translateY(24px); animation: reveal 1s cubic-bezier(0.16,1,0.3,1) 0.4s forwards; }
+  @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrolldot { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(28px); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .reveal, .reveal-2, .reveal-3 { animation: none; opacity: 1; transform: none; } .scroll-dot { animation: none; } html { scroll-behavior: auto; } }
+  .scroll-dot { animation: scrolldot 1.8s ease-in-out infinite; }
+}
