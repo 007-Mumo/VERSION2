@@ -23,7 +23,7 @@ const ProjectDetail = () => {
     ["Category", p.category],
     ["Location", p.location],
     ["Status", p.status],
-    ["Client", p.client ?? "Confidential"],
+    ["Client", p.client ],
   ];
 
   return (

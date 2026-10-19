@@ -49,11 +49,13 @@ const sectionContent: Record<
 const teamMembers = [
   {
     number: "01",
-    role: "Professional Engineer — Vincent Ben Jumba, MBA, M.I.E.K",
+    name: "Vincent Ben Jumba",
+    role: "Professional Engineer",
+    credentials: "MBA, M.I.E.K",
     discipline: "Mechatronics Engineering and Management",
-    qualification: "Mechatronics Engineering background with an MBA",
+    qualification: "Mechatronics Engineering, Master of Business Administration",
     institution:
-      "Jomo Kenyatta University of Agriculture and Technology",
+      "Jomo Kenyatta University of Agriculture and Technology, United States International University–Africa",
     description:
       "Brings multidisciplinary engineering and management experience to systems integration, automation, technical coordination and project delivery. Combines engineering knowledge with business and management perspectives to support technical decision-making and the effective coordination of engineering projects.",
     image: eng1,
@@ -61,7 +63,9 @@ const teamMembers = [
   },
   {
     number: "02",
-    role: "Graduate Engineer — Brian Mumo Musyoki",
+    name: "Brian Mumo Musyoki",
+    role: "Graduate Engineer",
+    credentials: "",
     discipline: "Electrical and Electronic Engineering",
     qualification: "BSc. Electrical and Electronic Engineering",
     institution: "University of Nairobi",
@@ -70,7 +74,6 @@ const teamMembers = [
     image: eng2,
     imageAlt: "Brian Mumo Musyoki, Graduate Engineer",
   },
-  
 ];
 
 const expertiseAreas = [
@@ -260,9 +263,12 @@ const AboutSection = ({ section }: AboutSectionProps) => {
                         <span className={`font-mono text-sm ${gold}`}>
                           {member.number}
                         </span>
-                        <h3 className="mt-3 text-xl font-bold">
-                          {member.role}
+                        <h3 className="mt-3 text-xl font-bold normal-case">
+                          {member.name}
                         </h3>
+                        <p className="mt-2 text-sm font-medium normal-case text-white/80">
+                          {member.role}{member.credentials ? ` — ${member.credentials}` : ""}
+                        </p>
                         <p className={`mt-2 text-sm ${gold}`}>
                           {member.discipline}
                         </p>
@@ -339,13 +345,16 @@ const AboutSection = ({ section }: AboutSectionProps) => {
                     </div>
 
                     <div className="px-1 pb-2 pt-6 sm:px-2 sm:pt-5">
-                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#B58B20]">
+                      <p className="text-xs font-semibold tracking-[0.14em] text-[#B58B20]">
                         {member.number} / {member.discipline}
                       </p>
-                      <h3 className="mt-3 text-xl font-semibold uppercase leading-snug tracking-[0.045em] sm:text-lg lg:text-xl">
-                        {member.role}
+                      <h3 className="mt-3 text-xl font-semibold normal-case leading-snug tracking-normal sm:text-lg lg:text-xl">
+                        {member.name}
                       </h3>
-                      <p className="mt-2 text-sm font-medium leading-snug text-foreground/80">
+                      <p className="mt-2 text-sm font-medium leading-snug normal-case text-foreground/80">
+                        {member.role}{member.credentials ? ` — ${member.credentials}` : ""}
+                      </p>
+                      <p className="mt-2 text-sm font-semibold leading-snug">
                         {member.qualification}
                       </p>
                       <p className="mt-1 text-sm leading-6 text-muted-foreground">
