@@ -236,59 +236,6 @@ const AboutSection = ({ section }: AboutSectionProps) => {
             </div>
           </section>
 
-          <section className={`${darkPanel} py-20 lg:py-24`}>
-            <div className="container-x">
-              <SectionHead
-                eyebrow="Our foundation"
-                title="Two complementary professional perspectives."
-                className="mb-12"
-              />
-
-              <div className="grid gap-6 md:grid-cols-2">
-                {teamMembers.map((member) => (
-                  <article
-                    key={member.number}
-                    className="group overflow-hidden border border-white/15 transition-colors hover:border-[#D4A72C]"
-                  >
-                    <div className="grid grid-cols-[minmax(150px,0.72fr)_minmax(0,1.28fr)] sm:grid-cols-[minmax(180px,0.75fr)_minmax(0,1.25fr)]">
-                      <div className="flex min-h-[260px] items-center justify-center overflow-hidden bg-[#22262D] p-1 sm:min-h-[320px] sm:p-2">
-                        <img
-                          src={member.image}
-                          alt={member.imageAlt}
-                          loading="lazy"
-                          className="h-full max-h-[420px] w-full object-contain object-center transition-transform duration-500"
-                        />
-                      </div>
-                      <div className="p-6">
-                        <span className={`font-mono text-sm ${gold}`}>
-                          {member.number}
-                        </span>
-                        <h3 className="mt-3 text-xl font-bold normal-case">
-                          {member.name}
-                        </h3>
-                        <p className="mt-2 text-sm font-medium normal-case text-white/80">
-                          {member.role}{member.credentials ? ` — ${member.credentials}` : ""}
-                        </p>
-                        <p className={`mt-2 text-sm ${gold}`}>
-                          {member.discipline}
-                        </p>
-                        <p className="mt-3 text-sm font-semibold text-white/90">
-                          {member.qualification}
-                        </p>
-                        <p className="mt-1 text-sm text-white/60">
-                          {member.institution}
-                        </p>
-                        <p className="mt-4 text-sm leading-7 text-white/70">
-                          {member.description}
-                        </p>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-
           <section className="py-20 lg:py-24">
             <div className="container-x">
               <SectionHead
